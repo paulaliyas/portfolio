@@ -20,6 +20,10 @@ export class HeroComponent implements OnInit {
   /** Live experience counter — a real signal, counted up on first paint. */
   protected readonly years = signal(0);
 
+  protected trackResumeDownload(): void {
+    window.gtag?.('event', 'resume_download', { file_name: this.profile.resumeUrl });
+  }
+
   ngOnInit(): void {
     const target = yearsSince(this.profile.careerStart);
 

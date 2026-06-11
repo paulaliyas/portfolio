@@ -26,7 +26,13 @@
 
     <div class="hero__actions">
       <a routerLink="/" fragment="projects" class="btn btn--primary">View projects</a>
-      <a [href]="profile.resumeUrl" class="btn btn--ghost" download>Download resume</a>
+      <a
+        [href]="profile.resumeUrl"
+        class="btn btn--ghost"
+        download
+        (click)="trackResumeDownload()"
+        >Download resume</a
+      >
     </div>
   </div>
 
