@@ -1,0 +1,26 @@
+<section
+  class="about"
+  id="about"
+  appSection="about"
+  appInspectTarget="app-about"
+  inspectMeta="standalone · OnPush · @defer"
+>
+  <div class="about__inner">
+    <div class="about__copy" appReveal>
+      <app-section-header eyebrow="about" title="The short version" />
+      @for (paragraph of profile.bio; track paragraph) {
+        <p class="about__paragraph">{{ paragraph }}</p>
+      }
+      <p class="about__learning">
+        <span class="about__learning-pulse" aria-hidden="true"></span>
+        currently learning {{ profile.currentlyLearning }}
+      </p>
+    </div>
+
+    <figure class="about__portrait" appReveal [revealDelay]="120">
+      <div class="about__portrait-frame">
+        <img class="about__portrait-photo" src="assets/paul.jpg" alt="Paul Alias" />
+      </div>
+    </figure>
+  </div>
+</section>

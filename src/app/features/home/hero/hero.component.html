@@ -1,0 +1,34 @@
+<section
+  class="hero"
+  id="hero"
+  appSection="hero"
+  appInspectTarget="app-hero"
+  inspectMeta="standalone · OnPush · signals"
+>
+  <div class="hero__bg" aria-hidden="true"></div>
+
+  <div class="hero__inner">
+    <p class="hero__eyebrow">{{ profile.location }} &middot; IST (UTC+5:30)</p>
+
+    <h1 class="hero__name">
+      Paul<br />
+      <span class="hero__name-accent">Alias</span>
+    </h1>
+
+    <p class="hero__role">{{ profile.role }} &middot; {{ profile.company }}</p>
+
+    <p class="hero__value">{{ profile.valueProposition }}</p>
+
+    <p class="hero__signal" role="status" aria-label="Years of experience, counting live">
+      <span class="hero__signal-code">experience = signal(</span><span class="hero__signal-value">{{ years() | number: '1.1-1' }}</span><span class="hero__signal-code">)</span>
+      <span class="hero__signal-note">years &mdash; live, like everything on this page</span>
+    </p>
+
+    <div class="hero__actions">
+      <a routerLink="/" fragment="projects" class="btn btn--primary">View projects</a>
+      <a [href]="profile.resumeUrl" class="btn btn--ghost" download>Download resume</a>
+    </div>
+  </div>
+
+  <p class="hero__scroll-hint" aria-hidden="true">scroll</p>
+</section>

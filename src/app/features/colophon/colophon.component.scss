@@ -1,0 +1,61 @@
+@use '../../../styles/mixins' as mx;
+
+.colophon {
+  padding-block: var(--space-7);
+}
+
+.colophon__inner {
+  @include mx.container;
+  max-width: 44rem;
+}
+
+.colophon__eyebrow {
+  @include mx.mono-eyebrow;
+  margin-bottom: var(--space-2);
+
+  &::before {
+    content: '// ';
+    color: var(--c-accent-2);
+  }
+}
+
+.colophon__title {
+  font-size: var(--text-2xl);
+}
+
+.colophon__lede {
+  margin-top: var(--space-3);
+  font-size: var(--text-l);
+  color: var(--c-text-muted);
+}
+
+.colophon__section {
+  margin-top: var(--space-5);
+
+  h2 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-2);
+  }
+
+  p { color: var(--c-text-muted); }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    color: var(--c-accent);
+    padding: 0.1rem 0.35rem;
+    background: var(--c-accent-soft);
+    border-radius: 4px;
+  }
+
+  kbd {
+    font-family: var(--font-mono);
+    padding: 0 0.35rem;
+    border: 1px solid var(--c-line);
+    border-radius: 4px;
+  }
+}
+
+.colophon__back {
+  margin-top: var(--space-6);
+}

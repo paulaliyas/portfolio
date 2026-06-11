@@ -1,0 +1,111 @@
+@use '../../../../styles/mixins' as mx;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--c-bg) 82%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--c-line);
+}
+
+.header__inner {
+  @include mx.container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  height: 4rem;
+}
+
+.header__brand {
+  font-family: var(--font-mono);
+  font-size: var(--text-m);
+  font-weight: 500;
+  color: var(--c-text);
+  white-space: nowrap;
+}
+
+.header__brand-dot { color: var(--c-accent); }
+
+.header__brand-cursor {
+  color: var(--c-accent);
+  animation: blink 1.2s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
+.header__nav {
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar { display: none; }
+}
+
+.header__list {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.header__link {
+  position: relative;
+  display: inline-block;
+  padding: 0.45rem 0.85rem;
+  font-size: var(--text-s);
+  color: var(--c-text-muted);
+  border-radius: 999px;
+  transition: color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+  white-space: nowrap;
+
+  &:hover { color: var(--c-text); }
+
+  &.is-active {
+    color: var(--c-accent);
+    background: var(--c-accent-soft);
+  }
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.header__inspect {
+  height: 2.4rem;
+  padding: 0 0.7rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-s);
+  color: var(--c-text-muted);
+  background: transparent;
+  border: 1px solid var(--c-line);
+  border-radius: 999px;
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-snap);
+
+  &:hover {
+    color: var(--c-accent-2);
+    border-color: var(--c-accent-2);
+    transform: translateY(-1px);
+  }
+
+  &.is-on {
+    color: var(--c-bg);
+    background: var(--c-accent-2);
+    border-color: var(--c-accent-2);
+  }
+}
+
+@media (max-width: 720px) {
+  .header__inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding-block: var(--space-2);
+  }
+
+  .header__nav { order: 3; width: 100%; }
+}

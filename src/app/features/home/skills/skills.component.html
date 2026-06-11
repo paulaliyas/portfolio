@@ -1,0 +1,33 @@
+<section
+  class="skills"
+  id="skills"
+  appSection="skills"
+  appInspectTarget="app-skills"
+  inspectMeta="standalone · OnPush · reusable input"
+>
+  <div class="skills__inner">
+    <app-section-header
+      eyebrow="skills"
+      title="Tools of the trade"
+      lede="Grouped by where they sit in the stack. Meters animate in when you get here — scroll-triggered, CSS only."
+    />
+
+    <div class="skills__grid">
+      @for (category of categories; track category.title; let i = $index) {
+        <article class="skills__card" appReveal [revealDelay]="i * 90">
+          <header class="skills__card-head">
+            <h3 class="skills__card-title">{{ category.title }}</h3>
+            @if (category.note) {
+              <p class="skills__card-note">{{ category.note }}</p>
+            }
+          </header>
+          <div class="skills__card-body">
+            @for (skill of category.skills; track skill.name) {
+              <app-skill-meter [label]="skill.name" [level]="skill.level" />
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

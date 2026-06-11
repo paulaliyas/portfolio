@@ -1,0 +1,40 @@
+<header class="header" appInspectTarget="app-header" inspectMeta="standalone · OnPush · scroll-spy">
+  <div class="header__inner">
+    <a routerLink="/" fragment="hero" class="header__brand" aria-label="Paul Alias — back to top">
+      paul<span class="header__brand-dot">.</span>alias<span class="header__brand-cursor" aria-hidden="true">_</span>
+    </a>
+
+    <nav class="header__nav" aria-label="Sections">
+      <ul class="header__list">
+        @for (item of navItems; track item.id) {
+          <li>
+            <a
+              routerLink="/"
+              [fragment]="item.id"
+              class="header__link"
+              [class.is-active]="scrollSpy.activeSection() === item.id"
+              [attr.aria-current]="scrollSpy.activeSection() === item.id ? 'true' : null"
+            >
+              {{ item.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <button
+        type="button"
+        class="header__inspect"
+        (click)="inspect.toggle()"
+        [class.is-on]="inspect.enabled()"
+        [attr.aria-pressed]="inspect.enabled()"
+        title="Inspect mode — see the component tree (press i)"
+      >
+        <span aria-hidden="true">&#123;&nbsp;&#125;</span>
+        <span class="visually-hidden">Toggle inspect mode</span>
+      </button>
+      <app-theme-toggle />
+    </div>
+  </div>
+</header>

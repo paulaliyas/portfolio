@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <title>Paul Alias</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Paul Alias — Senior Angular Developer in Kochi, Kerala. Enterprise Angular, dynamic forms, rule engines and signal-driven UIs." />
+  <meta name="color-scheme" content="dark light" />
+
+  <!-- TODO: replace https://paulalias.dev with your real deployed URL before going live -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Paul Alias" />
+  <meta property="og:title" content="Paul Alias — Senior Angular Developer" />
+  <meta property="og:description" content="Enterprise Angular, dynamic forms, rule engines and signal-driven UIs. Portfolio of Paul Alias, Kochi." />
+  <meta property="og:url" content="https://paulalias.dev/" />
+  <meta property="og:image" content="https://paulalias.dev/assets/paul.jpg" />
+  <meta property="og:image:alt" content="Paul Alias — Senior Angular Developer" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Paul Alias — Senior Angular Developer" />
+  <meta name="twitter:description" content="Enterprise Angular, dynamic forms, rule engines and signal-driven UIs." />
+  <meta name="twitter:image" content="https://paulalias.dev/assets/paul.jpg" />
+
+  <link rel="canonical" href="https://paulalias.dev/" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('pa-theme');
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+  <noscript>This portfolio is an Angular application and needs JavaScript enabled.</noscript>
+</body>
+</html>

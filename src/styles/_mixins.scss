@@ -1,0 +1,25 @@
+@mixin container {
+  width: min(var(--container), 100% - 2 * var(--space-4));
+  margin-inline: auto;
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 3px;
+    border-radius: var(--radius-s);
+  }
+}
+
+@mixin card-surface {
+  background: var(--c-card);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-m);
+}
+
+@mixin mono-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  color: var(--c-accent);
+}

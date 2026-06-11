@@ -1,0 +1,41 @@
+.meter {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.meter__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.meter__label {
+  font-size: var(--text-s);
+}
+
+.meter__value {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--c-text-muted);
+}
+
+.meter__track {
+  height: 5px;
+  border-radius: 999px;
+  background: var(--c-line);
+  overflow: hidden;
+}
+
+.meter__fill {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--c-accent), var(--c-accent-strong));
+  transition: width 900ms var(--ease-out) 150ms;
+}
+
+// Animates when the parent reveal element enters the viewport.
+:host-context(.is-revealed) .meter__fill {
+  width: var(--level);
+}

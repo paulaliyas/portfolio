@@ -1,0 +1,70 @@
+// ---------------------------------------------------------------------------
+// Design tokens — "Backwater" palette, type scale, motion
+// ---------------------------------------------------------------------------
+
+:root {
+  // Type
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  --text-xs: 0.75rem;
+  --text-s: 0.875rem;
+  --text-m: 1rem;
+  --text-l: clamp(1.125rem, 1rem + 0.5vw, 1.35rem);
+  --text-xl: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem);
+  --text-2xl: clamp(2rem, 1.4rem + 2.8vw, 3.5rem);
+  --text-hero: clamp(3rem, 1.5rem + 9vw, 8.5rem);
+
+  // Spacing
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --space-6: 4rem;
+  --space-7: clamp(4.5rem, 3rem + 6vw, 8rem);
+
+  // Shape
+  --radius-s: 8px;
+  --radius-m: 14px;
+  --radius-l: 22px;
+  --container: 1120px;
+
+  // Motion
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-snap: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --dur-fast: 200ms;
+  --dur-med: 320ms;
+  --dur-slow: 480ms;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --c-bg: #0d1417;
+  --c-bg-soft: #111b1f;
+  --c-card: #131e23;
+  --c-text: #eff3f2;
+  --c-text-muted: #9fb1ae;
+  --c-accent: #15a8c9;
+  --c-accent-strong: #3fc2e0;
+  --c-accent-2: #f4a300;
+  --c-line: rgba(201, 214, 211, 0.14);
+  --c-shadow: rgba(0, 0, 0, 0.45);
+  --c-accent-soft: rgba(21, 168, 201, 0.12);
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --c-bg: #eff3f2;
+  --c-bg-soft: #f7faf9;
+  --c-card: #ffffff;
+  --c-text: #0d1417;
+  --c-text-muted: #5c6b68;
+  --c-accent: #0e8aa6;
+  --c-accent-strong: #0a6f86;
+  --c-accent-2: #b77400;
+  --c-line: rgba(13, 20, 23, 0.12);
+  --c-shadow: rgba(13, 20, 23, 0.12);
+  --c-accent-soft: rgba(14, 138, 166, 0.1);
+}

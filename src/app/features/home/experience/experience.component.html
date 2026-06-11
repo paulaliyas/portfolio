@@ -1,0 +1,31 @@
+<section
+  class="experience"
+  id="experience"
+  appSection="experience"
+  appInspectTarget="app-experience"
+  inspectMeta="standalone · OnPush · @defer"
+>
+  <div class="experience__inner">
+    <app-section-header
+      eyebrow="experience"
+      title="One company, many chapters"
+      lede="Five and a half years at TCS, each chapter with bigger surface area than the last."
+    />
+
+    <ol class="experience__timeline">
+      @for (entry of entries; track entry.role; let i = $index) {
+        <li class="experience__entry" appReveal [revealDelay]="i * 100">
+          <div class="experience__marker" aria-hidden="true"></div>
+          <p class="experience__period">{{ entry.period }}</p>
+          <h3 class="experience__role">{{ entry.role }}</h3>
+          <p class="experience__summary">{{ entry.summary }}</p>
+          <ul class="experience__highlights">
+            @for (highlight of entry.highlights; track highlight) {
+              <li>{{ highlight }}</li>
+            }
+          </ul>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

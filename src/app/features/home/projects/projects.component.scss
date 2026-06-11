@@ -1,0 +1,135 @@
+@use '../../../../styles/mixins' as mx;
+
+.projects {
+  padding-block: var(--space-7);
+  background: var(--c-bg-soft);
+}
+
+.projects__inner {
+  @include mx.container;
+}
+
+.projects__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.projects__filter {
+  padding: 0.45rem 1rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-s);
+  color: var(--c-text-muted);
+  background: transparent;
+  border: 1px solid var(--c-line);
+  border-radius: 999px;
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-snap);
+
+  &:hover {
+    color: var(--c-text);
+    border-color: var(--c-accent);
+    transform: translateY(-1px);
+  }
+
+  &.is-active {
+    color: var(--c-bg);
+    background: var(--c-accent);
+    border-color: var(--c-accent);
+  }
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: var(--space-4);
+}
+
+.projects__card {
+  @include mx.card-surface;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-med) var(--ease-out);
+
+  &:hover {
+    border-color: var(--c-accent);
+    box-shadow: 0 24px 48px -24px var(--c-shadow);
+  }
+}
+
+.projects__card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.projects__card-title {
+  font-size: var(--text-xl);
+}
+
+.projects__card-badge {
+  flex-shrink: 0;
+  padding: 0.2rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--c-accent-2);
+  border: 1px dashed var(--c-accent-2);
+  border-radius: 999px;
+}
+
+.projects__card-tagline {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--c-accent);
+}
+
+.projects__card-description {
+  color: var(--c-text-muted);
+  font-size: var(--text-s);
+  flex-grow: 1;
+}
+
+.projects__card-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.projects__card-links {
+  display: flex;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--c-line);
+}
+
+.projects__card-link {
+  font-family: var(--font-mono);
+  font-size: var(--text-s);
+  transition: color var(--dur-fast) var(--ease-out);
+
+  &:hover { color: var(--c-accent-strong); }
+
+  span {
+    display: inline-block;
+    transition: transform var(--dur-fast) var(--ease-snap);
+  }
+
+  &:hover span { transform: translate(2px, -2px); }
+}
+
+.projects__empty {
+  grid-column: 1 / -1;
+  font-family: var(--font-mono);
+  color: var(--c-text-muted);
+}

@@ -1,0 +1,21 @@
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-m);
+  line-height: 1.65;
+  color: var(--c-text);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+p { margin: 0; }
+
+::selection {
+  background: var(--c-accent);
+  color: var(--c-bg);
+}

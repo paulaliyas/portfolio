@@ -1,0 +1,104 @@
+<section
+  class="contact"
+  id="contact"
+  appSection="contact"
+  appInspectTarget="app-contact"
+  inspectMeta="standalone · OnPush · typed reactive form"
+>
+  <div class="contact__inner">
+    <app-section-header
+      eyebrow="contact"
+      title="Say hello"
+      lede="Open to interesting frontend problems, side-project collaborations and good conversations about Angular."
+    />
+
+    <div class="contact__layout">
+      <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()" appReveal>
+        <div class="contact__field">
+          <label class="contact__label" for="contact-name">Name</label>
+          <input
+            id="contact-name"
+            class="contact__input"
+            type="text"
+            formControlName="name"
+            autocomplete="name"
+            [attr.aria-invalid]="showError('name')"
+            [attr.aria-describedby]="showError('name') ? 'contact-name-error' : null"
+          />
+          @if (showError('name')) {
+            <p class="contact__error" id="contact-name-error" role="alert">
+              A name with at least 2 characters, please.
+            </p>
+          }
+        </div>
+
+        <div class="contact__field">
+          <label class="contact__label" for="contact-email">Email</label>
+          <input
+            id="contact-email"
+            class="contact__input"
+            type="email"
+            formControlName="email"
+            autocomplete="email"
+            [attr.aria-invalid]="showError('email')"
+            [attr.aria-describedby]="showError('email') ? 'contact-email-error' : null"
+          />
+          @if (showError('email')) {
+            <p class="contact__error" id="contact-email-error" role="alert">
+              That email does not look quite right.
+            </p>
+          }
+        </div>
+
+        <div class="contact__field">
+          <label class="contact__label" for="contact-message">Message</label>
+          <textarea
+            id="contact-message"
+            class="contact__input contact__input--area"
+            rows="5"
+            formControlName="message"
+            [attr.aria-invalid]="showError('message')"
+            [attr.aria-describedby]="showError('message') ? 'contact-message-error' : null"
+          ></textarea>
+          @if (showError('message')) {
+            <p class="contact__error" id="contact-message-error" role="alert">
+              Tell me a little more — at least 20 characters.
+            </p>
+          }
+        </div>
+
+        <button class="btn btn--primary contact__submit" type="submit">
+          @if (status() === 'sent') {
+            Opened in your email app <span aria-hidden="true">&#10003;</span>
+          } @else {
+            Send message
+          }
+        </button>
+
+        @if (status() === 'sent') {
+          <p class="contact__success" role="status">
+            Your email app should have opened with the message ready to send.
+            If nothing happened, email me directly at
+            <a [href]="'mailto:' + profile.email">{{ profile.email }}</a>.
+          </p>
+        }
+      </form>
+
+      <aside class="contact__aside" appReveal [revealDelay]="120">
+        <p class="contact__aside-title">Elsewhere</p>
+        <ul class="contact__links">
+          <li>
+            <a class="contact__link" [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+          </li>
+          @for (social of profile.socials; track social.url) {
+            <li>
+              <a class="contact__link" [href]="social.url" rel="noopener">
+                {{ social.label }} <span aria-hidden="true">&#8599;</span>
+              </a>
+            </li>
+          }
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>

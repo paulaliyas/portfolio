@@ -1,0 +1,63 @@
+<section
+  class="projects"
+  id="projects"
+  appSection="projects"
+  appInspectTarget="app-projects"
+  inspectMeta="standalone · OnPush · computed() filter"
+>
+  <div class="projects__inner">
+    <app-section-header
+      eyebrow="projects"
+      title="Things I have shipped"
+      lede="The filter below is a writable signal feeding a computed() — open inspect mode and watch it change."
+    />
+
+    <div class="projects__filters" role="group" aria-label="Filter projects by technology">
+      @for (option of state.filters; track option) {
+        <button
+          type="button"
+          class="projects__filter"
+          [class.is-active]="state.filter() === option"
+          [attr.aria-pressed]="state.filter() === option"
+          (click)="state.filter.set(option)"
+        >
+          {{ option }}
+        </button>
+      }
+    </div>
+
+    <div class="projects__grid">
+      @for (project of state.filtered(); track project.id; let i = $index) {
+        <article class="projects__card" appReveal [revealDelay]="i * 80" appTilt>
+          <header class="projects__card-head">
+            <h3 class="projects__card-title">{{ project.title }}</h3>
+            @if (project.badge) {
+              <span class="projects__card-badge">{{ project.badge }}</span>
+            }
+          </header>
+
+          <p class="projects__card-tagline">{{ project.tagline }}</p>
+          <p class="projects__card-description">{{ project.description }}</p>
+
+          <div class="projects__card-stack">
+            @for (tech of project.stack; track tech) {
+              <app-chip [label]="tech" />
+            }
+          </div>
+
+          @if (project.links.length > 0) {
+            <div class="projects__card-links">
+              @for (link of project.links; track link.url) {
+                <a [href]="link.url" class="projects__card-link" rel="noopener">
+                  {{ link.label }} <span aria-hidden="true">&#8599;</span>
+                </a>
+              }
+            </div>
+          }
+        </article>
+      } @empty {
+        <p class="projects__empty">Nothing matches that filter yet — try another technology.</p>
+      }
+    </div>
+  </div>
+</section>

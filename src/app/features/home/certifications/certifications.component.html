@@ -1,0 +1,37 @@
+<section
+  class="certs"
+  id="awards"
+  appSection="awards"
+  appInspectTarget="app-certifications"
+  inspectMeta="standalone · OnPush · @defer"
+>
+  <div class="certs__inner">
+    <app-section-header eyebrow="recognition" title="Certifications &amp; awards" />
+
+    <div class="certs__columns">
+      <div class="certs__column" appReveal>
+        <h3 class="certs__column-title">Certifications</h3>
+        <ul class="certs__list">
+          @for (cert of certifications; track cert.name) {
+            <li class="certs__item">
+              <span class="certs__item-name">{{ cert.name }}</span>
+              <span class="certs__item-issuer">{{ cert.issuer }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="certs__column" appReveal [revealDelay]="120">
+        <h3 class="certs__column-title">Awards at TCS</h3>
+        <ul class="certs__list">
+          @for (award of awards; track award.name) {
+            <li class="certs__item">
+              <span class="certs__item-name">{{ award.name }}</span>
+              <span class="certs__item-issuer" aria-hidden="true">&#9733;</span>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

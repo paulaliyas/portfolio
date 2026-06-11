@@ -1,0 +1,60 @@
+<article class="colophon" appInspectTarget="app-colophon" inspectMeta="standalone · OnPush · lazy route">
+  <div class="colophon__inner">
+    <p class="colophon__eyebrow">colophon</p>
+    <h1 class="colophon__title">How this site is built</h1>
+
+    <p class="colophon__lede">
+      This portfolio is its own case study: a small Angular 17 application that uses the modern
+      toolkit the way I use it at work — just with the hood left open.
+    </p>
+
+    <section class="colophon__section">
+      <h2>Signals everywhere</h2>
+      <p>
+        Every piece of local state is a signal: the theme, the active section, the project filter,
+        even the experience counter in the hero. Derived state like the filtered project list is a
+        <code>computed()</code>. Press <kbd>i</kbd> anywhere to open the signal monitor and watch
+        the values update as you interact with the page.
+      </p>
+    </section>
+
+    <section class="colophon__section">
+      <h2>Standalone &amp; OnPush</h2>
+      <p>
+        There is not a single NgModule in the codebase. Every component is standalone, declares
+        exactly what it imports, and runs with <code>ChangeDetectionStrategy.OnPush</code>. Signals
+        make that combination feel effortless — change detection runs only where state actually
+        changed.
+      </p>
+    </section>
+
+    <section class="colophon__section">
+      <h2>Lazy by default</h2>
+      <p>
+        Routes load via <code>loadComponent</code>, and every section below the hero sits inside a
+        <code>&#64;defer</code> block. Sections hydrate on idle so deep links and the navigation
+        anchors keep working, while the initial bundle stays focused on the first paint.
+      </p>
+    </section>
+
+    <section class="colophon__section">
+      <h2>CSS does the heavy lifting</h2>
+      <p>
+        Reveal animations, the tilt on project cards, the inspect-mode overlay, the theme change —
+        all CSS, driven by classes and custom properties. JavaScript only flips signals. Motion
+        respects <code>prefers-reduced-motion</code> across the board.
+      </p>
+    </section>
+
+    <section class="colophon__section">
+      <h2>Typed content, no CMS</h2>
+      <p>
+        Every word on this site lives in typed constants under <code>src/app/data</code>, validated
+        by interfaces in <code>src/app/models</code>. Updating the portfolio is a pull request, the
+        way it should be.
+      </p>
+    </section>
+
+    <a routerLink="/" fragment="hero" class="btn btn--ghost colophon__back">&larr; Back to the site</a>
+  </div>
+</article>

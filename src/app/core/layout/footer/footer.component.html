@@ -1,0 +1,12 @@
+<footer class="footer" appInspectTarget="app-footer" inspectMeta="standalone · OnPush">
+  <div class="footer__inner">
+    <p class="footer__built">
+      Built with <a routerLink="/colophon">Angular 17 + Signals</a> — no template, no page builder.
+      Press <kbd>i</kbd> to see how.
+    </p>
+    <div class="footer__meta">
+      <p class="footer__copy">&copy; {{ year }} {{ profile.name }} · {{ profile.location }}</p>
+      <app-theme-toggle />
+    </div>
+  </div>
+</footer>

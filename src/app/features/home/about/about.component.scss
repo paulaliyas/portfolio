@@ -1,0 +1,95 @@
+@use '../../../../styles/mixins' as mx;
+
+.about {
+  padding-block: var(--space-7);
+}
+
+.about__inner {
+  @include mx.container;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.about__paragraph {
+  margin-bottom: var(--space-3);
+  color: var(--c-text-muted);
+  max-width: 36rem;
+}
+
+.about__learning {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  padding: 0.4rem 0.9rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--c-accent-2);
+  border: 1px dashed var(--c-accent-2);
+  border-radius: 999px;
+}
+
+.about__learning-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--c-accent-2);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.75); }
+}
+
+.about__portrait {
+  margin: 0;
+  justify-self: end;
+  width: min(18rem, 100%);
+}
+
+.about__portrait-frame {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(circle at 30% 20%, var(--c-accent-soft), transparent 60%),
+    var(--c-bg-soft);
+  transform: rotate(2deg);
+  transition: transform var(--dur-med) var(--ease-snap);
+
+  &:hover { transform: rotate(0deg) scale(1.02); }
+}
+
+.about__portrait-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about__portrait-mark {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--c-accent);
+  opacity: 0.5;
+}
+
+.about__portrait-caption {
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--c-text-muted);
+  text-align: right;
+}
+
+@media (max-width: 860px) {
+  .about__inner { grid-template-columns: 1fr; }
+  .about__portrait { justify-self: start; }
+}

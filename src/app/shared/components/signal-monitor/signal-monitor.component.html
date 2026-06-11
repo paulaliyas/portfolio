@@ -1,0 +1,22 @@
+<aside class="monitor" role="status" aria-label="Live signal monitor">
+  <p class="monitor__title">signals — live</p>
+  <dl class="monitor__list">
+    <div class="monitor__row">
+      <dt>theme()</dt>
+      <dd>'{{ theme.theme() }}'</dd>
+    </div>
+    <div class="monitor__row">
+      <dt>activeSection()</dt>
+      <dd>'{{ scrollSpy.activeSection() }}'</dd>
+    </div>
+    <div class="monitor__row">
+      <dt>projectFilter()</dt>
+      <dd>'{{ projects.filter() }}'</dd>
+    </div>
+    <div class="monitor__row">
+      <dt>visibleProjects()</dt>
+      <dd>{{ projects.filtered().length }}</dd>
+    </div>
+  </dl>
+  <p class="monitor__hint">press <kbd>i</kbd> to close · scroll &amp; click to watch values change</p>
+</aside>
