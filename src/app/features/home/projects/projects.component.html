@@ -48,9 +48,20 @@
           @if (project.links.length > 0) {
             <div class="projects__card-links">
               @for (link of project.links; track link.url) {
-                <a [href]="link.url" class="projects__card-link" rel="noopener">
-                  {{ link.label }} <span aria-hidden="true">&#8599;</span>
-                </a>
+                @if (link.url.startsWith('http')) {
+                  <a
+                    [href]="link.url"
+                    class="projects__card-link"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    {{ link.label }} <span aria-hidden="true">&#8599;</span>
+                  </a>
+                } @else {
+                  <a [routerLink]="link.url" class="projects__card-link">
+                    {{ link.label }} <span aria-hidden="true">&#8599;</span>
+                  </a>
+                }
               }
             </div>
           }

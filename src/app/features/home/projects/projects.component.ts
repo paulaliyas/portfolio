@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 import { ProjectsStateService } from '../../../core/services/projects-state.service';
 import { ChipComponent } from '../../../shared/components/chip/chip.component';
@@ -12,6 +13,7 @@ import { TiltDirective } from '../../../shared/directives/tilt.directive';
   selector: 'app-projects',
   standalone: true,
   imports: [
+    RouterLink,
     SectionHeaderComponent,
     ChipComponent,
     InspectTargetDirective,
