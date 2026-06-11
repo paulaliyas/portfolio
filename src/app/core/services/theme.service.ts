@@ -23,6 +23,7 @@ export class ThemeService {
 
   toggle(): void {
     this.theme.update((current) => (current === 'dark' ? 'light' : 'dark'));
+    window.gtag?.('event', 'theme_toggle', { theme: this.theme() });
   }
 }
 

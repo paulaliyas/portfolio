@@ -17,5 +17,6 @@ export class InspectService {
 
   toggle(): void {
     this.enabled.update((value) => !value);
+    window.gtag?.('event', 'inspect_toggle', { enabled: this.enabled() });
   }
 }
